@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
+    <script id="stadiumLayout" type="text/x-handlebars-template">
+        <li>
+            <div>
+                {{ name }}
+            </div>
+            <div>
+                {{ city }}
+            </div>
+            <div>
+                {{ lat }} - {{ lng }}
+            </div>
+            <div>
+                <img src="{{ image }}" alt="{{ name }}">
+            </div>
+        </li>
+    </script>
+
+    <script id="tvchannelsLayout" type="text/x-handlebars-template">
+        <li>
+            <div>
+                {{ name }}
+            </div>
+            <div>
+                {{ country }}
+            </div>
+            <div>
+                <img src="{{ icon }}" alt="">
+            </div>
+            <div>
+                {{#if enFlag}}
+                    <img src="img/en.png" alt="">
+                {{^}}
+                    {{ lang }}
+                {{/if}}
+            </div>
+        </li>
+    </script>
+
+    <script id="groupsLayout" type="text/x-handlebars-template">
+       <li>
+            {{ name }} <br>
+            Winner: {{ winner }} <br>
+            Runnerup: {{ runnerup }} <br><br>
+            <ul class="matches">
+                {{{ matchesHtml }}}
+            </ul>
+       </li>
+    </script>
+    <script id="matchesLayout" type="text/x-handlebars-template">
+        <li>
+            {{ type }} {{ name }} <br>
+            Teams: {{ home_team }} - {{ away_team }} <br>
+            Results: {{ home_result }} - {{ away_result }} <br>
+            Date: {{ date }} <br>
+            Stadiums: {{ stadium }} <br>
+            Finished: {{ finished }} <br>
+            Matchday: {{ matchday }}
+            Channels: <br>
+            <ul>
+                {{{ channelsHtml }}}
+            </ul>
+        </li>
+    </script>
+
+    <script id="channelsLayout" type="text/x-handlebars-template">
+        <li>
+            {{ this }}
+        </li>
+    </script>
+    <script id="groupsLayoutAdv" type="text/x-handlebars-template">
+        <li>
+            {{ name }} <br>
+            Winner: {{ winner }} <br>
+            Runnerup: {{ runnerup }} <br><br>
+            <ul>
+                {{#each matches}}
+                    <li class="matches">
+                        {{ type }} {{ name }} <br>
+                        Teams: {{ home_team }} - {{ away_team }} <br>
+                        Results: {{ home_result }} - {{ away_result }} <br>
+                        Date: {{ date }} <br>
+                        Stadiums: <span data-value="{{ stadium }}" class="stadium"></span><br>
+                        Finished: {{ finished }} <br>
+                        Matchday: {{ matchday }} <br>
+                        Channels: <br>
+                        <ul>
+                            {{#each channels}}
+                                <li data-value="{{ this }}" class="channels"></li>
+                            {{/each}}
+                        </ul>
+                    </li>
+                {{/each}}
+            </ul>
+        </li>
+    </script>
+
+    <script id="knockOutsLayout" type="text/x-handlebars-template">
+        <li>
+              <spa id="roundName"> {{ name }}</spa> <br> <br>
+            <ul class="matches">
+                {{#each matches}}
+                    <li id="knocklist">
+                        <!-- Name: {{ name }} <br> <br> -->
+                        <!-- Type: {{ type }} <br> -->
+                        Home team: <span class="team" data-value="{{ home_team }}"></span><br><br>
+                        Away team: <span class="team" data-value="{{ away_team }}"></span><br><br>
+                        Home result: {{ home_result }} <br><br>
+                        Away result: {{ away_result }} <br><br>
+                        Home penalty: {{ home_penalty }} <br><br>
+                        Away penalty: {{ away_penalty }} <br><br>
+                        Winner: <span class="team" data-value="{{ winner }}"></span> <br><br>
+                        Date: {{ date }} <br><br>
+                        Stadium: <span class="stadium" data-value="{{ stadium }}"></span><br>
+                         <button id="buttonImg" type="button">Click Me!</button> <br><br><br>
+                          <img data-value="{{ stadiumId }}" id="imgStadium" class="hidden" src="" alt="" width="500" height="600">
+                        <br><br><br>
+                        Finished: {{ finished }} <br><br>
+                        Matchday: {{ matchday }} <br><br>
+                        Channels: <br><br>
+                        <ul class="channels">
+                            {{#each channels}}
+                                <li data-value="{{ this }}"></li>
+                            {{/each}}
+                        </ul>
+                    </li>
+                {{/each}}
+            </ul>
+        </li>
+    </script>
+</head>
+
+
+<body>
+    <div class="container">
+        <div>
+            <nav>
+              <h1 id="title">
+                Soviet BetWin <span id="notForReal">it's just a simulation</span>
+                <img src="img/cossack.png" alt="">
+              </h1>
+            </nav>
+            <div id="buttonSelections">
+                <button id="getStadiums">STADIUMS</button>
+                <button id="getChannels">CANALI TV</button>
+                <button id="getGroups">GRUPPI</button>
+                <button id="getKnockouts">KNOCK OUTS</button>
+            </div>
+            <ul id="target"></ul>
+        </div>
+    </div>
+</body>
+</html>

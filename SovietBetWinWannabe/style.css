@@ -1,0 +1,141 @@
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+ul {
+
+    list-style: none;
+}
+
+body {
+
+    width: 100vw;
+    height: 100vh;
+    background-image: url(img/Lev.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    background-color: rgb(8, 31, 44);
+}
+
+.container {
+
+    display: flex;
+
+    width: 100%;
+    height: 100%;
+}
+nav{
+
+}
+h1{
+  font-size: 7rem;
+  border: 1px solid black;
+  background-color: rgba(8, 31, 44, 0.95);
+  border-radius: 98px;
+  padding: 23px;
+}
+#roundName{
+  font-size: 1.7rem;
+  display: flex;
+  justify-content: center;
+  padding-top: 4vh;
+}
+#notForReal{
+  font-size: 0.5rem;
+}
+#notForReal:hover{
+  cursor: help;
+}
+#buttonSelections{
+  background-color: rgba(8, 31, 44, 0.95);
+  padding: 4vh 0vw;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 50px;
+}
+#getStadiums{
+  padding: 15px;
+}
+#getStadiums:hover{
+  color: red;
+  text-decoration: underline;
+}
+#getChannels{
+  padding: 15px;
+}
+#getChannels:hover{
+  color: red;
+  text-decoration: underline;
+}
+#getGroups{
+  padding: 15px;
+}
+#getGroups:hover{
+  color: red;
+  text-decoration: underline;
+}
+#getKnockouts{
+  padding: 15px;
+}
+#getKnockouts:hover{
+  color: red;
+  text-decoration: underline;
+}
+
+#target{
+  background-color: rgba(8, 31, 44, 0.95);
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.channels{
+  
+}
+.container > * {
+
+    margin: auto;
+}
+
+li {
+    width: 80%;
+    background-color: rgba(128, 128, 128,0.6);
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+li h3 {
+
+    margin-left: 20px;
+}
+
+img {
+
+    width: 200px;
+    height: 200px;
+}
+#imgStadium{
+  width: 70%;
+  height: 70%;
+}
+#knocklist{
+  padding: 5vh 4vw;
+}
+.team{
+  font-size: 1.5rem;
+}
+.team:hover{
+  color: yellow;
+}
+.hidden{
+
+  display: none;
+}
+.visible{
+  display: block;
+}
